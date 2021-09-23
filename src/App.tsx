@@ -1,25 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
+
+import PerilGallery from "./components/PerilGallery";
+
+import theme from "./theme";
+
+const GlobalStyle = createGlobalStyle`
+  *,
+  *::after,
+  *::before {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: ${({ theme }) => theme.typography.fontFamily};
+    font-weight: ${({ theme }) => theme.typography.fontWeight.regular};
+    font-size: ${({ theme }) => theme.typography.fontSize.xs};
+    line-height: ${({ theme }) => theme.typography.lineHeight.xs};
+    color: ${({ theme }) => theme.colors.black};
+
+    @media ${({ theme }) => theme.responsive.mediaQueries.minWidthSm} {
+      font-size: ${({ theme }) => theme.typography.fontSize.sm};
+    }
+  }
+`;
+
+const Container = styled.main`
+  min-height: 100vh;
+  padding: 3em 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Container>
+        <PerilGallery />
+      </Container>
+      <GlobalStyle />
+    </ThemeProvider>
   );
 }
 
