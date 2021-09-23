@@ -11,7 +11,7 @@ const Paper = styled.div`
   position: relative;
   margin: 2em;
   padding: 1.125em 1.5em;
-  width: min(100% - 2em, 600px);
+  width: min(100% - 2em, 450px);
   max-height: calc(100% - 2em);
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: ${({ theme }) => theme.shape.borderRadius};
