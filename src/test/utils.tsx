@@ -8,7 +8,7 @@ const AllTheProviders: FunctionComponent<{}> = ({ children }) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 
-function customRender(ui: ReactElement, options: RenderOptions) {
+function customRender(ui: ReactElement, options?: RenderOptions) {
   return render(ui, { wrapper: AllTheProviders, ...options });
 }
 
