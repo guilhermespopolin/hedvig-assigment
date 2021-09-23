@@ -30,9 +30,7 @@ const PerilShortDescription = styled.p`
   font-size: ${({ theme }) => theme.typography.fontSize.xs};
 `;
 
-const PerilCard = styled.div.attrs({
-  role: "button",
-})`
+const PerilCard = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.black};
   border-radius: ${({ theme }) => theme.shape.borderRadius};
   display: flex;
@@ -91,7 +89,12 @@ function Peril({
 
   return (
     <>
-      <PerilCard ref={cardRef} onClick={openPerilModal}>
+      <PerilCard
+        ref={cardRef}
+        role="button"
+        aria-label={title}
+        onClick={openPerilModal}
+      >
         {minWidthSm && isHovered ? (
           <>
             <PerilTitle>{title}</PerilTitle>
