@@ -1,21 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import { Peril } from "../utils/types";
-
-type PerilResponse = {
-  title: string;
-  description: string;
-  shortDescription: string;
-  covered: string[];
-  exceptions: string[];
-  icon: {
-    variants: {
-      light: { svgUrl: string };
-      dark: { svgUrl: string };
-    };
-  };
-};
+import { Peril, PerilResponse } from "../utils/types";
 
 const PERILS_API_URL =
   "https://hedvig-staging-rest-api.vercel.app/api/perils?contractType=SE_APARTMENT_RENT&locale=en_SE";
